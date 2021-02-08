@@ -1,104 +1,45 @@
-import "./styles/index.scss";
-import "./images/yoda-stitch.jpg";
-import canvasExample from "./scripts/canvas";
-import Square from "./scripts/square";
-import { DOMExample } from "./scripts/DOMExample";
-const currentStateObj = {
-  currentExample: null,
-  currentEventListeners: [],
-};
+let canvas = document.getElementById("gameScreen");
+var width = canvas.offsetWidth;
+var height = canvas.offsetHeight;
+let ctx = canvas.getContext('2d');
+let elements = [];
 
-document.querySelector("#canvas-demo").addEventListener("click", startCanvas);
-document.querySelector("#DOM-demo").addEventListener("click", startDOM);
-
-function startDOM() {
-  unregisterEventListeners();
-  clearDemo();
-  currentStateObj.currentExample = "DOMDEMO";
-  DOMExample();
+let circlePos = {
+  left: Math.floor(Math.random() * ((width - 200) - 204) + 204),
+  top: Math.floor(Math.random() * ((height - 300) - 200) + 200)
 }
 
-function startCanvas() {
-  clearDemo();
-  unregisterEventListeners();
-  currentStateObj.currentExample = "CANVASDEMO";
-  const canvas = new canvasExample();
-  canvas.createCanvas();
-  const squares = [new Square(canvas.ctx, canvas.coords, canvas.fillColor)];
+canvas.addEventListener('mousedown', function (e) {
+  // debugger
+    let x = e.pageX - 100;
+    let y = e.pageY - 125;
+    elements.forEach(function(ele) {
+      // debugger
+      if (y > ele.top && y < ele.top + ele.height && x > ele.left && x < ele.left + ele.width ) {
+        let circlePos = {
+            left: Math.floor(Math.random() * ((width - 200) - 204) + 204),
+            top: Math.floor(Math.random() * ((height - 300) - 200) + 200)
+        }
 
-  let animating = true;
+        drawRandomCircle(circlePos);
+      }
+    })
+})
 
-  const animation = () => {
-    canvas.clearCanvas();
-    if (animating) squares.forEach((sq) => sq.updateSquare(canvas.fillColor));
-    squares.forEach((sq) => sq.drawSquare());
-    window.requestAnimationFrame(animation);
-    squares.forEach((sq) => {
-      if (sq.coords[0] + sq.coords[2] > window.innerWidth)
-        sq.reverseAnimation();
-      if (sq.coords[0] < 0) sq.reverseAnimation();
-    });
-  };
+function drawRandomCircle(circlePos) {
+  // debugger
 
-  window.requestAnimationFrame(animation);
-
-  window.addEventListener("keydown", handleKeyDown);
-  currentStateObj.currentEventListeners.push([
-    "window",
-    "keydown",
-    handleKeyDown,
-  ]);
-
-  window.addEventListener("mousedown", handleMouseDown);
-  currentStateObj.currentEventListeners.push([
-    "window",
-    "mousedown",
-    handleMouseDown,
-  ]);
-
-  function handleKeyDown(event) {
-    if (event.which === 32) {
-      event.preventDefault();
-      squares.forEach((sq) => sq.reverseAnimation());
-      canvas.setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-    }
-  }
-
-  function handleMouseDown(event) {
-    event.preventDefault();
-    squares.push(
-      new Square(
-        canvas.ctx,
-        canvas.coords.map((co) => co + 25),
-        canvas.fillColor
-      )
-    );
-    // animating = !animating;
-  }
+  ctx.clearRect(0,0, 1700, 700);
+  ctx.fillStyle='#33ccff';
+  ctx.beginPath();
+  ctx.arc(circlePos.left, circlePos.top, 25, 0, 2 * Math.PI);
+  ctx.fill();
+  elements.push({
+    width: 50,
+    height: 50,
+    top: circlePos.top,
+    left: circlePos.left,
+  })
 }
 
-function unregisterEventListeners() {
-  while (currentStateObj.currentEventListeners.length) {
-    let [
-      selector,
-      event,
-      handler,
-    ] = currentStateObj.currentEventListeners.pop();
-    if (selector === "window") {
-      window.removeEventListener(event, handler);
-      console.log(handler);
-    } else {
-      document.querySelector(selector).removeEventListener(event, handler);
-    }
-  }
-}
-
-function clearDemo() {
-  if (currentStateObj.currentExample === "CANVASDEMO")
-    document.body.removeChild(document.querySelector("canvas"));
-  if (currentStateObj.currentExample === "DOMDEMO") {
-    [...document.querySelectorAll(".card")].forEach((elem) =>
-      document.body.removeChild(elem)
-    );
-  }
-}
+drawRandomCircle(circlePos);

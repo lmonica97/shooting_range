@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./dist/main.css" />
-    <title>JS Project Skeleton</title>
-  </head>
 
-  <body>
-    <button id="canvas-demo">Canvas Demo</button>
-    <button id="DOM-demo">DOM Demo</button>
-    <script src="./dist/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/index.css" />
+  <title>Shooting Range</title>
+  <link rel="shortcut icon" type="image/jpg" href="./src/styles/aim.png" />
+
+  <style>
+    #gameScreen {
+      margin-left: 100px;
+      margin-right: 100px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="head">
+      <button class="how-to-button">How to Play</button>
+      <div>
+        <h1 class="header">Shooting Range</h1>
+        <span class="credit">by: Monica Liang Zheng</span>
+      </div>
+      <div class="navlinks">
+        <a href="https://github.com/lmonica97/shooting_range" class="nav1"><img
+            src="./src/styles/github-sign.png" /></a>
+        <a href="https://www.linkedin.com/in/monica-liang-a06510146/"><img src="./src/styles/linkedin.png" /></a>
+      </div>
+    </div>
+  </div>
+  <canvas id="gameScreen" width="1700" height="700"></canvas>
+  <script src="./src/index.js"></script>
+</body>
+
 </html>

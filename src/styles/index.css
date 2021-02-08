@@ -1,0 +1,34 @@
+.header { 
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    margin: 0px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.navlinks {
+    margin-top: 20px;
+}
+
+.nav1 {
+    margin-right: 40px;
+}
+
+.how-to-button {
+    height: 80px;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.credit {
+    text-align: center;
+    margin-left: 160px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
