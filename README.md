@@ -18,7 +18,7 @@ Shooting sound affects (on hit, missed shot and reappearance of the bubble)
 ## Wireframes 
 
 <p align="center">
-  <img src="https://github.com/lmonica97/shooting_range/blob/main/wireframe.PNG" />
+  <img src="https://github.com/lmonica97/shooting_range/blob/master/wireframe.PNG" />
 </p>
 
 ## Architexture and Technology
