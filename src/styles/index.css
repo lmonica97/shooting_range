@@ -32,3 +32,48 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
 }
+
+#gameScreen{
+    position: absolute;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: 2px solid black;
+    background-image: './grid.jpg';
+}
+
+.visible {
+    position: absolute;
+    margin-left: 100px;
+    /* margin-top: 200px; */
+    background-color: rgb(190, 184, 184);
+    /* opacity: 25%; */
+    width: 1704px;
+    height: 704px;
+}
+
+.welcomeText {
+    font-size: 40px;
+    padding-top: 200px;
+    opacity: 1;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    z-index: 99;
+}
+
+#score{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    margin-left: 1200px;
+    text-align: center;
+}
+
+.score-timer {
+    display: flex;
+}
+
+#timer {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    margin-left: 100px;
+}
+

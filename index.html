@@ -9,14 +9,6 @@
   <link rel="stylesheet" href="./src/styles/index.css" />
   <title>Shooting Range</title>
   <link rel="shortcut icon" type="image/jpg" href="./src/styles/aim.png" />
-
-  <style>
-    #gameScreen {
-      margin-left: 100px;
-      margin-right: 100px;
-      border: 2px solid black;
-    }
-  </style>
 </head>
 
 <body>
@@ -34,8 +26,24 @@
       </div>
     </div>
   </div>
-  <canvas id="gameScreen" width="1700" height="700"></canvas>
-  <script src="./src/index.js"></script>
+  <div class="field">
+    <div class="canvas-background">
+      <!-- <canvas id="canvasBackground" width="1700" height="700"></canvas> -->
+      <canvas id="gameScreen" width="1700" height="700"></canvas>
+      <div id="background" class="visible">
+        <div class="welcomeText">Welcome to the Shooting Range. <br> Press 'Enter' to begin shooting! Instructions on
+          how-to-play is above. <br> By Monica Liang Zheng <br>
+        </div>
+      </div>
+      <div class="score-timer">
+          <div id="score">Score: 0</div>
+          <div id="timer">Time</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!-- <canvas id="gameScreen" width="1700" height="700"></canvas> -->
+  <script  type="module" src="./dist/main.js"></script>
 </body>
 
 </html>
