@@ -39,6 +39,7 @@
     margin-right: 100px;
     border: 2px solid black;
     background-image: './grid.jpg';
+    cursor: none;
 }
 
 .visible {
@@ -75,5 +76,14 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 50px;
     margin-left: 100px;
+}
+
+
+#crosshair {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    left: 950px;
+    top: 500px;
 }
 

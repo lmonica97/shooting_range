@@ -16,7 +16,10 @@
   },
   "author": "mrcjbradley",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "three": "^0.125.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-optional-chaining": "^7.11.0",
