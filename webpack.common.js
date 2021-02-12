@@ -83,4 +83,5 @@ module.exports = {
     }),
     require("autoprefixer"),
   ],
+  performance: { hints: false }
 };
