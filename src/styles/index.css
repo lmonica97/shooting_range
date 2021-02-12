@@ -24,11 +24,72 @@
     height: 80px;
     width: 200px;
     margin-top: 20px;
+    font-family: 'Bebas Neue', cursive;
+    background-color: rgb(209, 204, 204);
+    font-size: 20px;
+}
+
+.how-to-button:hover {
+    opacity: 0.5;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    font-family: 'Bebas Neue', cursive;
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0, 0.2), 0 7px 20px 0 rgba(0,0,0, 0.2);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.modalHeader {
+    font-size: 40px;
+    margin: 10px 0px;
+}
+
+.modal-content p {
+    font-size: 20px;
+}
+
+.logoName {
+    height: 30px;
+    width: 30px;
+}
+
+.logoMain {
+    height: 80px;
+    width: 80px;
+}
+
+.close-button {
+    color: black;
+    float: right;
+    font-size: 60px;
+}
+
+.close-button:hover, close-button:focus {
+    color: gray;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .credit {
     text-align: center;
-    margin-left: 160px;
+    margin-left: 200px;
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
 }

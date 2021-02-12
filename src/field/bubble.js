@@ -6,11 +6,15 @@ class Bubble {
         this.height = this.canvas.offsetHeight;
         this.dx = 2;
         this.dy = -2;
+        this.radius = 25;
+        this.gunshot = document.getElementById('audio');
         this.left = Math.floor(Math.random() * ((this.width - 200) - 204) + 204)
         this.top = Math.floor(Math.random() * ((this.height - 300) - 200) + 200)
         this.clickHandler = this.clickHandler.bind(this);
         this.onMouseMove = this.onMouseMove.bind(this);
         this.emptyArray = this.emptyArray.bind(this);
+        this.animatePop = this.animatePop.bind(this);
+        this.generateRandomPosition = this.generateRandomPosition.bind(this);
         this.bubbles = [];
         this.speed = 4;
         this.canvas.requestPointerLock= this.canvas.requestPointerLock || this.canvas.mozRequestPointerLock;
@@ -19,11 +23,11 @@ class Bubble {
         this.canvas.addEventListener('mousemove', this.onMouseMove, false);
         this.score = document.getElementById('score');
         this.totalScore = 0;
+        debugger
     }
 
-
-
     drawRandomCircle(circlePos){
+        debugger
         this.ctx.clearRect(0,0, 1700, 700);
         this.ctx.fillStyle='#33ccff';
         this.ctx.beginPath();
@@ -36,6 +40,22 @@ class Bubble {
             left: circlePos.left,
         })
     }
+    
+    animatePop(circlePos) {
+        this.canvas.requestAnimationFrame(this.animatePop(circlePos))
+        this.ctx.clearRect(0, 0, 1700, 700);
+        this.ctx.fillStyle='#33ccff';
+        this.ctx.beginPath();
+        this.ctx.arc(circlePos.left, circlePos.top, this.radius, 0, 2 * Math.PI);
+        this.ctx.fill();
+        this.radius -= 2
+        if (radius === 0) {
+            this.canvas.cancelAnimationFrame()
+            this.radius = 25;
+            let newPos = this.generateRandomPosition()
+            this.drawRandomCircle(newPos);
+        }
+    }
 
     updateScore() {
         this.score.innerText = `Score: ${this.totalScore}`
@@ -45,6 +65,7 @@ class Bubble {
         let circlePos = ({left: 0, top: 0})
         let mouseX = (e.movementX )
         let mouseY = (e.movementY )
+        console.log(this.bubbles)
         if (mouseX < 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
@@ -93,20 +114,27 @@ class Bubble {
         this.bubbles.splice(0, this.bubbles.length);
     }
 
+    generateRandomPosition(){
+        let circlePos = ({left: 0, top: 0});
+        circlePos.left = Math.floor(Math.random() * ((this.width - 200) - 204) + 204)
+        circlePos.top = Math.floor(Math.random() * ((this.height - 300) - 200) + 200)
+        debugger
+        return circlePos
+    }
+
     clickHandler(e) {
         e.preventDefault();
         let x = 890;
         let y = 400;
         this.bubbles.forEach(ele => {
             if ( y > ele.top && y < ele.top + ele.height && x > ele.left && x < ele.left + ele.width ) {
-                let circlePos = {
-                    left: Math.floor(Math.random() * ((this.width - 200) - 204) + 204),
-                    top: Math.floor(Math.random() * ((this.height - 300) - 200) + 200)
-                }
+                // this.animatePop(ele);
                 this.totalScore += 1;
                 this.updateScore();
+                this.gunshot.play();
                 this.emptyArray();
-                this.drawRandomCircle(circlePos);
+                let newPos = this.generateRandomPosition();
+                this.drawRandomCircle(newPos)
             }
 
         })

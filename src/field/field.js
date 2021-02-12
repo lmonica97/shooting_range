@@ -12,23 +12,9 @@ class Field {
         this.top = Math.floor(Math.random() * ((this.height - 300) - 200) + 200);
         this.time = document.getElementById('timer');
         this.totalTime = 60;
-        this.requestPointerLock= canvas.requestPointerLock || canvas.mozRequestPointerLock;
-        document.exitPointerLock = document.exitPointerLock || document.mozExitPointerLock;
-        // this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 0.1, 500);
-        // this.camera.position.z = 50;
-        // this.scene = new THREE.Scene();
-        // this.renderer = new THREE.WebGLRenderer({ antialias: true});
-        // this.renderer.setSize( this.width, this.height);
-        // this.canvasHalf = new THREE.Vector2( this.width / 2, this.height / 2);
-        // this.mouse = new THREE.Vector2();
-
-        // this.onMouseMove = this.onMouseMove.bind(this);
         this.startGame = this.startGame.bind(this);
         this.tick = this.tick.bind(this);
-        // this.crosshair = this.crosshair.bind(this);
-
         document.addEventListener('keypress', this.startGame())
-    
     }
 
     startGame(e) {
@@ -50,7 +36,6 @@ class Field {
     }
 
     restartGame() {
-        debugger
         document.getElementById('background').classList.remove('visible');
         document.querySelector('.welcomeText').style.display = 'none';
         this.bubble.drawRandomCircle({left: this.left, top: this.top});
@@ -61,17 +46,5 @@ class Field {
         document.getElementById('background').classList.add('visible'); 
     }
 
-    // crosshair() {
-    //     // this.ctx.clearRect(0, 0, this.width, this.height);
-    //     this.ctx.beginPath();
-    //     this.ctx.moveTo(860, 350);
-    //     this.ctx.lineTo(840, 350);
-    //     this.ctx.stroke();
-    //     this.ctx.beginPath();
-    //     this.ctx.moveTo(850, 340);
-    //     this.ctx.lineTo(850, 360);
-    //     this.ctx.stroke();
-    //     requestAnimationFrame(crosshair);
-    // }
 }
 export default Field;
