@@ -39,11 +39,17 @@ class Field {
         document.getElementById('background').classList.remove('visible');
         document.querySelector('.welcomeText').style.display = 'none';
         this.bubble.drawRandomCircle({left: this.left, top: this.top});
+        const crosshair = document.getElementById('crosshair');
+        crosshair.style.display = 'block';
         this.tick();
     }
 
     endGame() {
         document.getElementById('background').classList.add('visible'); 
+        document.querySelector('.welcomeText').style.display = 'block';
+        const crosshair = document.getElementById('crosshair');
+        crosshhair.style.display = "none";
+        this.totalTime = 60;
     }
 
 }

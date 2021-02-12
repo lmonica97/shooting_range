@@ -7,7 +7,6 @@ class Bubble {
         this.dx = 2;
         this.dy = -2;
         this.radius = 25;
-        this.gunshot = document.getElementById('audio');
         this.left = Math.floor(Math.random() * ((this.width - 200) - 204) + 204)
         this.top = Math.floor(Math.random() * ((this.height - 300) - 200) + 200)
         this.clickHandler = this.clickHandler.bind(this);
@@ -16,7 +15,7 @@ class Bubble {
         this.animatePop = this.animatePop.bind(this);
         this.generateRandomPosition = this.generateRandomPosition.bind(this);
         this.bubbles = [];
-        this.speed = 4;
+        this.speed = 5;
         this.canvas.requestPointerLock= this.canvas.requestPointerLock || this.canvas.mozRequestPointerLock;
         document.exitPointerLock = document.exitPointerLock || document.mozExitPointerLock;
         document.addEventListener('mousedown', this.clickHandler, false); 
@@ -118,7 +117,6 @@ class Bubble {
         let circlePos = ({left: 0, top: 0});
         circlePos.left = Math.floor(Math.random() * ((this.width - 200) - 204) + 204)
         circlePos.top = Math.floor(Math.random() * ((this.height - 300) - 200) + 200)
-        debugger
         return circlePos
     }
 
@@ -131,7 +129,8 @@ class Bubble {
                 // this.animatePop(ele);
                 this.totalScore += 1;
                 this.updateScore();
-                this.gunshot.play();
+                const gunshot = new Audio('../styles/pistolshot.mp3');
+                gunshot.play();
                 this.emptyArray();
                 let newPos = this.generateRandomPosition();
                 this.drawRandomCircle(newPos)

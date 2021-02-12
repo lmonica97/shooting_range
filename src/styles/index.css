@@ -2,6 +2,7 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 100px;
     margin: 0px;
+    color: black;
 }
 
 .head {
@@ -25,12 +26,14 @@
     width: 200px;
     margin-top: 20px;
     font-family: 'Bebas Neue', cursive;
-    background-color: rgb(209, 204, 204);
-    font-size: 20px;
+    background-color: white;
+    font-size: 30px;
+    border: 3px solid black;
 }
 
 .how-to-button:hover {
-    opacity: 0.5;
+    color: red;
+    cursor: pointer;
 }
 
 .modal {
@@ -70,6 +73,13 @@
     width: 30px;
 }
 
+.logo-word {
+    color: red;
+}
+
+.bubble {
+    color: #33ccff;
+}
 .logoMain {
     height: 80px;
     width: 80px;
@@ -85,6 +95,12 @@
     color: gray;
     text-decoration: none;
     cursor: pointer;
+}
+
+.other-word {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    color: red;
 }
 
 .credit {
@@ -107,15 +123,17 @@
     position: absolute;
     margin-left: 100px;
     /* margin-top: 200px; */
-    background-color: rgb(190, 184, 184);
+    background-color: white;
     /* opacity: 25%; */
     width: 1704px;
     height: 704px;
+    border: 5px solid black;
 }
 
 .welcomeText {
+    display: block;
     font-size: 40px;
-    padding-top: 200px;
+    padding-top: 190px;
     opacity: 1;
     font-family: 'Bebas Neue', cursive;
     text-align: center;
@@ -141,6 +159,7 @@
 
 
 #crosshair {
+    display: block;
     position: absolute;
     font-size: 30px;
     font-weight: bold;
@@ -148,3 +167,33 @@
     top: 500px;
 }
 
+.footer-notes {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Bebas Neue', cursive;
+    margin-top: 670px;
+    height: 40px;
+    width: 1700px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.restartButton {
+    font-family: 'Bebas Neue', cursive;
+    background-color: white;
+    font-size: 30px;
+    padding: 10px 55px;
+    border: 3px solid black;
+}
+
+.restartButton:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.highScore {
+    font-size: 30px;
+    color: red;
+}

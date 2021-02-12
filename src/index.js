@@ -2,8 +2,6 @@ import Bubble from './field/bubble';
 import Field from './field/field';
 
 let canvas = document.getElementById("gameScreen");
-const crosshair = document.getElementById('crosshair');
-crosshair.innerHTML = '+';
 new Field(canvas);
 
 //modal 

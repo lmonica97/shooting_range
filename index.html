@@ -15,21 +15,20 @@
 </head>
 
 <body>
-
   <div>
     <div class="head">
       <button  id="modalButton" class="how-to-button">How to Play</button>
       <div id="gameModal" class="modal">
         <div class="modal-content">
           <span id="close-button" class="close-button">&times;</span>
-          <h3 class="modalHeader">Sh<img class="logoName" src="./src/styles/logo-med.png" /><img class="logoName" src="./src/styles/logo-med.png" />ting Range</h3>
-          <p>Welcome to the shooting range. <br> Instructions are very simple. <br> Move your middle crosshair to a bubble and click on the bubble to pop it. <br> For each pop, you get one point.</p>
-          <p>Time limit is 60 seconds. Try and score the highest score within 60 seconds!</p>
-          <p>Good Luck Fellow Gamer.</p>
+          <h3 class="modalHeader">Sh<img class="logoName" src="./src/styles/logo-med.png" /><img class="logoName" src="./src/styles/logo-med.png" />ting <span class="logo-word">Range</span></h3>
+          <p>Welcome to the shooting range. <br> Instructions are very simple. <br> Move your middle crosshair with your mouse to the <span class="bubble">bubble</span> and click to pop the <span class="bubble">bubble</span>. <br> For each <span class="bubble">bubble</span> popped, you get one point.</p>
+          <p>Time limit is <span class="logo-word">60</span> seconds. Try and score the highest score within 60 seconds!</p>
+          <p>Good Luck Fellow <span class="logo-word">Gamer</span>.</p>
         </div>
       </div>
       <div>
-        <h1 class="header">Sh<img class="logoMain" src="./src/styles/logo-large.png" /><img class="logoMain" src="./src/styles/logo-large.png" />ting Range</h1>
+        <h1 class="header">Sh<img class="logoMain" src="./src/styles/logo-large.png" /><img class="logoMain" src="./src/styles/logo-large.png" />ting <span class="other-word">Range</span></h1>
         <span class="credit">by: Monica Liang Zheng</span>
       </div>
       <div class="navlinks">
@@ -44,22 +43,27 @@
       <!-- <canvas id="canvasBackground" width="1700" height="700"></canvas> -->
       <canvas id="gameScreen" width="1700" height="700"></canvas>
       <div id="background" class="visible">
-        <div class="welcomeText">Welcome to the Shooting Range. <br> Press 'Enter' to begin shooting! Instructions on
-          how-to-play is above. <br> By Monica Liang Zheng <br>
+        <div class="welcomeText">Welcome to the Sh<img class="logoName" src="./src/styles/logo-med.png" /><img class="logoName" src="./src/styles/logo-med.png" />ting <span class="logo-word">Range</span>. <br> Press <span class="logo-word">'Enter'</span> to begin shooting! <br>Instructions on
+          how-to-play is above.
         </div>
       </div>
       <div class="score-timer">
           <div id="score">Score: 0</div>
           <div id="timer">Time</div>
       </div>
-         <div id="crosshair"></div>
+         <div id="crosshair" class="crosshair" >+</div>
       </div>
     </div>
   </div>
   <!-- <canvas id="gameScreen" width="1700" height="700"></canvas> -->
   <script  type="module" src="./dist/main.js">
-  <audio id="audio" src="./sounds/pistolshot.mp3" style="display:none"></audio>
+  <audio id="audio" src="./src/sounds/pistolshot.mp3" style="display:none"></audio>
   </script>
 </body>
-
+<footer>
+  <div class="footer-notes">
+    <button class="restartButton">Restart</button>
+    <div class="highScore">High Score:</div>
+  </div>
+</footer>
 </html>
