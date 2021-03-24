@@ -47,7 +47,6 @@ class Field {
     endGame() {
         document.getElementById('background').classList.add('visible'); 
         document.querySelector('.welcomeText').style.display = 'block';
-        debugger
         this.totalTime = 60;
     }
 
