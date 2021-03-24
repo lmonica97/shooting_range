@@ -47,8 +47,7 @@ class Field {
     endGame() {
         document.getElementById('background').classList.add('visible'); 
         document.querySelector('.welcomeText').style.display = 'block';
-        const crosshair = document.getElementById('crosshair');
-        crosshhair.style.display = "none";
+        debugger
         this.totalTime = 60;
     }
 

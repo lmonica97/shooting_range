@@ -22,11 +22,9 @@ class Bubble {
         this.canvas.addEventListener('mousemove', this.onMouseMove, false);
         this.score = document.getElementById('score');
         this.totalScore = 0;
-        debugger
     }
 
     drawRandomCircle(circlePos){
-        debugger
         this.ctx.clearRect(0,0, 1700, 700);
         this.ctx.fillStyle='#33ccff';
         this.ctx.beginPath();
