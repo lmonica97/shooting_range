@@ -16,7 +16,7 @@ class Bubble {
         this.clearScore = this.clearScore.bind(this);
         this.generateRandomPosition = this.generateRandomPosition.bind(this);
         this.bubbles = [];
-        this.speed = 5;
+        this.speed = 6;
         this.canvas.requestPointerLock= this.canvas.requestPointerLock || this.canvas.mozRequestPointerLock;
         document.exitPointerLock = document.exitPointerLock || document.mozExitPointerLock;
         document.addEventListener('mousedown', this.clickHandler, false); 
