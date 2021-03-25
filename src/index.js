@@ -2,7 +2,7 @@ import Bubble from './field/bubble';
 import Field from './field/field';
 
 let canvas = document.getElementById("gameScreen");
-new Field(canvas);
+let field = new Field(canvas);
 
 //modal 
 let modal = document.getElementById('gameModal');
@@ -19,4 +19,10 @@ function openModal() {
 closeButton.addEventListener('click', closeModal);
 function closeModal() {
     modal.style.display = 'none';
+}
+
+let restartButton = document.getElementById('restart');
+restartButton.addEventListener('click', restart);
+function restart() {
+    field.restart();
 }

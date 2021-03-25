@@ -13,6 +13,8 @@ class Field {
         this.time = document.getElementById('timer');
         this.totalTime = 60;
         this.startGame = this.startGame.bind(this);
+        this.restartGame = this.restartGame.bind(this);
+        this.restart = this.restart.bind(this);
         this.tick = this.tick.bind(this);
         document.addEventListener('keypress', this.startGame())
     }
@@ -35,13 +37,18 @@ class Field {
         }
     }
 
+    restart() {
+        this.totalTime = 60;
+        this.bubble.clearScore();
+    }
+
     restartGame() {
         document.getElementById('background').classList.remove('visible');
         document.querySelector('.welcomeText').style.display = 'none';
         this.bubble.drawRandomCircle({left: this.left, top: this.top});
-        const crosshair = document.getElementById('crosshair');
-        crosshair.style.display = 'block';
         this.tick();
+        this.totalTime = 60;
+        this.bubble.clearScore();
     }
 
     endGame() {
