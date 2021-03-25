@@ -52,6 +52,7 @@ class Field {
     }
 
     endGame() {
+        alert(`Final Score: ${this.bubble.totalScore}`)
         document.getElementById('background').classList.add('visible'); 
         document.querySelector('.welcomeText').style.display = 'block';
         this.totalTime = 60;

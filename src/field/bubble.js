@@ -57,7 +57,6 @@ class Bubble {
 
     updateScore() {
         this.score.innerText = `Score: ${this.totalScore}`
-        debugger
     } 
 
     onMouseMove(e) {
