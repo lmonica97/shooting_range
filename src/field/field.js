@@ -48,6 +48,7 @@ class Field {
         document.getElementById('background').classList.add('visible'); 
         document.querySelector('.welcomeText').style.display = 'block';
         this.totalTime = 60;
+        this.bubble.clearScore();
     }
 
 }

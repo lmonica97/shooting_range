@@ -13,6 +13,7 @@ class Bubble {
         this.onMouseMove = this.onMouseMove.bind(this);
         this.emptyArray = this.emptyArray.bind(this);
         this.animatePop = this.animatePop.bind(this);
+        this.clearScore = this.clearScore.bind(this);
         this.generateRandomPosition = this.generateRandomPosition.bind(this);
         this.bubbles = [];
         this.speed = 5;
@@ -56,6 +57,7 @@ class Bubble {
 
     updateScore() {
         this.score.innerText = `Score: ${this.totalScore}`
+        debugger
     } 
 
     onMouseMove(e) {
@@ -111,6 +113,11 @@ class Bubble {
         this.bubbles.splice(0, this.bubbles.length);
     }
 
+    clearScore() {
+        this.totalScore = 0;
+        this.updateScore();
+    }
+
     generateRandomPosition(){
         let circlePos = ({left: 0, top: 0});
         circlePos.left = Math.floor(Math.random() * ((this.width - 200) - 204) + 204)
@@ -127,8 +134,8 @@ class Bubble {
                 // this.animatePop(ele);
                 this.totalScore += 1;
                 this.updateScore();
-                const gunshot = new Audio('../styles/pistolshot.mp3');
-                gunshot.play();
+                // const gunshot = new Audio('../styles/pistolshot.mp3');
+                // gunshot.play();
                 this.emptyArray();
                 let newPos = this.generateRandomPosition();
                 this.drawRandomCircle(newPos)
