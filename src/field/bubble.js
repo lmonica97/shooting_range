@@ -63,7 +63,6 @@ class Bubble {
         let circlePos = ({left: 0, top: 0})
         let mouseX = (e.movementX )
         let mouseY = (e.movementY )
-        console.log(this.bubbles)
         if (mouseX < 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
