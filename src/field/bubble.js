@@ -25,6 +25,7 @@ class Bubble {
         this.score = document.getElementById('score');
         this.totalScore = 0;
         this.highScore = 0;
+        this.saveHighScore = 'highscore';
     }
 
     drawRandomCircle(circlePos){
@@ -74,7 +75,7 @@ class Bubble {
                 newbubbleX = this.width - bubble.left;
             }
             circlePos.left = newBubbleX; 
-            console.log(mouseX < 0)
+            console.log(newBubbleX);
         } else if (mouseX > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
@@ -82,8 +83,8 @@ class Bubble {
             if (newBubbleX < 0 || newBubbleX > this.width) {
                 newbubbleX = this.width - bubble.left;
             }
+            console.log(newBubbleX)
             circlePos.left = newBubbleX
-            console.log(mouseX > 0)
         } else {
             let bubble = this.bubbles[this.bubbles.length - 1];
             circlePos.left = bubble.left;
@@ -96,6 +97,7 @@ class Bubble {
                 newbubbleY = this.height - bubble.top;
             }
             circlePos.top = newBubbleY;
+            console.log(newBubbleY)
         } else if (mouseY > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleY = bubble.top; 
@@ -104,6 +106,7 @@ class Bubble {
                 newbubbleY = this.height - bubble.top;
             }
             circlePos.top = newBubbleY;
+            console.log(newBubbleY)
         } else {
             let bubble = this.bubbles[this.bubbles.length - 1];
             circlePos.top = bubble.top;
@@ -120,6 +123,12 @@ class Bubble {
         this.totalScore = 0;
         this.updateScore();
         this.scoreHigh.innerText = `High Score: ${this.highScore}`
+        let scoreStr = localStorage.getItem(this.saveHighScore);
+        if (scoreStr === null) {
+            this.saveHighScore = 0;
+        } else {
+            this.highScore = parseInt(scoreStr);
+        }
     }
 
     generateRandomPosition(){
@@ -143,12 +152,14 @@ class Bubble {
                 this.emptyArray();
                 let newPos = this.generateRandomPosition();
                 this.drawRandomCircle(newPos)
+                let gunshot = new Audio('gunshot.mp3');
+                gunshot.play();
                 if (this.totalScore > this.highScore) {
                     this.highScore = this.totalScore;
+                    localStorage.setItem(this.saveHighScore, this.highScore);
                     this.scoreHigh.innerText = `High Score: ${this.highScore}`;
                 }
             }
-
         })
     }
 
