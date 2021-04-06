@@ -1,5 +1,4 @@
 import Bubble from './bubble';
-import * as THREE from 'three';
 
 class Field {
     constructor(canvas) {
