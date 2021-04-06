@@ -21,8 +21,10 @@ class Bubble {
         document.exitPointerLock = document.exitPointerLock || document.mozExitPointerLock;
         document.addEventListener('mousedown', this.clickHandler, false); 
         this.canvas.addEventListener('mousemove', this.onMouseMove, false);
+        this.scoreHigh = document.getElementById('highScore');
         this.score = document.getElementById('score');
         this.totalScore = 0;
+        this.highScore = 0;
     }
 
     drawRandomCircle(circlePos){
@@ -63,6 +65,7 @@ class Bubble {
         let circlePos = ({left: 0, top: 0})
         let mouseX = (e.movementX )
         let mouseY = (e.movementY )
+        console.log(mouseX, mouseY)
         if (mouseX < 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
@@ -71,6 +74,7 @@ class Bubble {
                 newbubbleX = this.width - bubble.left;
             }
             circlePos.left = newBubbleX; 
+            console.log(mouseX < 0)
         } else if (mouseX > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
@@ -79,6 +83,7 @@ class Bubble {
                 newbubbleX = this.width - bubble.left;
             }
             circlePos.left = newBubbleX
+            console.log(mouseX > 0)
         } else {
             let bubble = this.bubbles[this.bubbles.length - 1];
             circlePos.left = bubble.left;
@@ -114,6 +119,7 @@ class Bubble {
     clearScore() {
         this.totalScore = 0;
         this.updateScore();
+        this.scoreHigh.innerText = `High Score: ${this.highScore}`
     }
 
     generateRandomPosition(){
@@ -137,6 +143,10 @@ class Bubble {
                 this.emptyArray();
                 let newPos = this.generateRandomPosition();
                 this.drawRandomCircle(newPos)
+                if (this.totalScore > this.highScore) {
+                    this.highScore = this.totalScore;
+                    this.scoreHigh.innerText = `High Score: ${this.highScore}`;
+                }
             }
 
         })
