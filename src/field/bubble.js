@@ -153,6 +153,7 @@ class Bubble {
                 let newPos = this.generateRandomPosition();
                 this.drawRandomCircle(newPos)
                 let gunshot = new Audio('gunshot.mp3');
+                gunshot.volume = 0.2;
                 gunshot.play();
                 if (this.totalScore > this.highScore) {
                     this.highScore = this.totalScore;

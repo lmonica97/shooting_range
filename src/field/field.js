@@ -17,6 +17,7 @@ class Field {
         this.restart = this.restart.bind(this);
         this.tick = this.tick.bind(this);
         document.addEventListener('keypress', this.startGame())
+        this.background = new Audio('background.mp3');
     }
 
     startGame(e) {
@@ -48,7 +49,9 @@ class Field {
         this.bubble.drawRandomCircle({left: this.left, top: this.top});
         this.tick();
         this.totalTime = 60;
-        this.bubble.clearScore();
+        this.bubble.clearScore()
+        this.background.volume = 0.1;
+        this.background.play();
     }
 
     endGame() {
@@ -57,6 +60,8 @@ class Field {
         document.querySelector('.welcomeText').style.display = 'block';
         this.totalTime = 60;
         this.bubble.clearScore();
+        this.background.pause();
+        this.background.currentTime = 0;
     }
 
 }
