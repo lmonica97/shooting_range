@@ -66,24 +66,21 @@ class Bubble {
         let circlePos = ({left: 0, top: 0})
         let mouseX = (e.movementX )
         let mouseY = (e.movementY )
-        console.log(mouseX, mouseY)
         if (mouseX < 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
             let newBubbleX = bubbleX + this.speed
             if (newBubbleX < 0 || newBubbleX > this.width) {
-                newbubbleX = this.width - bubble.left;
+                newBubbleX = this.width - bubble.left;
             }
             circlePos.left = newBubbleX; 
-            console.log(newBubbleX);
         } else if (mouseX > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
             let newBubbleX = bubbleX - this.speed;
             if (newBubbleX < 0 || newBubbleX > this.width) {
-                newbubbleX = this.width - bubble.left;
+                newBubbleX = this.width - bubble.left;
             }
-            console.log(newBubbleX)
             circlePos.left = newBubbleX
         } else {
             let bubble = this.bubbles[this.bubbles.length - 1];
@@ -94,24 +91,21 @@ class Bubble {
             let bubbleY = bubble.top; 
             let newBubbleY = bubbleY + this.speed 
             if (newBubbleY < 0 || newBubbleY > this.height) {
-                newbubbleY = this.height - bubble.top;
+                newBubbleY = this.height - bubble.top;
             }
             circlePos.top = newBubbleY;
-            console.log(newBubbleY)
         } else if (mouseY > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleY = bubble.top; 
             let newBubbleY = bubbleY - this.speed
             if (newBubbleY < 0 || newBubbleY > this.height) {
-                newbubbleY = this.height - bubble.top;
+                newBubbleY = this.height - bubble.top;
             }
             circlePos.top = newBubbleY;
-            console.log(newBubbleY)
         } else {
             let bubble = this.bubbles[this.bubbles.length - 1];
             circlePos.top = bubble.top;
         }
-        console.log(circlePos);
         this.drawRandomCircle(circlePos)
     }
 
