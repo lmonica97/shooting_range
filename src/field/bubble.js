@@ -69,17 +69,19 @@ class Bubble {
         if (mouseX < 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
-            let newBubbleX = bubbleX + this.speed
-            if (newBubbleX < 0 || newBubbleX > this.width) {
-                newBubbleX = this.width - bubble.left;
-            }
+            let newBubbleX = bubbleX + this.speed;
+            let newbubbleX = 0;
+            // if (newBubbleX < 0 && newBubbleX > this.width) {
+            //     newbubbleX = this.width - bubble.left;
+            // }
             circlePos.left = newBubbleX; 
         } else if (mouseX > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleX = bubble.left;
             let newBubbleX = bubbleX - this.speed;
-            if (newBubbleX < 0 || newBubbleX > this.width) {
-                newBubbleX = this.width - bubble.left;
+            let newbubbleX = 0;
+            if (newBubbleX < 0 && newBubbleX > this.width) {
+                newbubbleX = this.width - bubble.left;
             }
             circlePos.left = newBubbleX
         } else {
@@ -89,17 +91,19 @@ class Bubble {
         if (mouseY < 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleY = bubble.top; 
-            let newBubbleY = bubbleY + this.speed 
-            if (newBubbleY < 0 || newBubbleY > this.height) {
-                newBubbleY = this.height - bubble.top;
+            let newBubbleY = bubbleY + this.speed;
+            let newbubbleY = 0;
+            if (newBubbleY < 0 && newBubbleY > this.height) {
+                newbubbleY = this.height - bubble.top;
             }
             circlePos.top = newBubbleY;
         } else if (mouseY > 0) {
             let bubble = this.bubbles[this.bubbles.length - 1];
             let bubbleY = bubble.top; 
             let newBubbleY = bubbleY - this.speed
-            if (newBubbleY < 0 || newBubbleY > this.height) {
-                newBubbleY = this.height - bubble.top;
+            let newbubbleY = 0;
+            if (newBubbleY < 0 && newBubbleY > this.height) {
+                newbubbleY = this.height - bubble.top;
             }
             circlePos.top = newBubbleY;
         } else {
