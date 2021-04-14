@@ -80,9 +80,9 @@ class Bubble {
             let bubbleX = bubble.left;
             let newBubbleX = bubbleX - this.speed;
             let newbubbleX = 0;
-            if (newBubbleX < 0 && newBubbleX > this.width) {
-                newbubbleX = this.width - bubble.left;
-            }
+            // if (newBubbleX < 0 && newBubbleX > this.width) {
+            //     newbubbleX = this.width - bubble.left;
+            // }
             circlePos.left = newBubbleX
         } else {
             let bubble = this.bubbles[this.bubbles.length - 1];
